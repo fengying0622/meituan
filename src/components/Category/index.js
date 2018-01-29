@@ -4,7 +4,6 @@
 import React from "react"
 import ReactSwipe from "react-swipe"
 import "../../static/css/category.css"
-import {Row} from "antd"
 
 //轮播图：react-swipe
 class Category extends React.Component{
