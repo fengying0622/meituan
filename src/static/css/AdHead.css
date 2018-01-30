@@ -1,0 +1,17 @@
+.adHead{
+    background-color: #fff;
+}
+h2{
+    font-size: 16px;
+    font-weight: 700;
+    padding-left:15px;
+}
+.ad-container{
+    width: 100%;
+    margin: 8px 5px;
+}
+.ad-item{
+    float:left;
+    padding: 10px 15px;
+    width: 33.3%;
+}

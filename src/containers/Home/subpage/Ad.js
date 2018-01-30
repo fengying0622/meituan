@@ -2,6 +2,7 @@
  * Created by Administrator on 2018/1/29.
  */
 import React from "react"
+import AdHead from "../../../components/AdHead/index"
 
 class Ad extends React.Component{
     constructor(props){
@@ -23,7 +24,14 @@ class Ad extends React.Component{
     }
 
     render(){
-        return <div>{this.state.data.length}</div>
+
+        return(
+            <div>
+                {
+                    this.state.data.length ?  <AdHead data={this.state.data}/> : <div>正在加载...</div>
+                }
+            </div>
+        )
     }
 }
 export default Ad
