@@ -25,7 +25,7 @@ class ListComponent extends React.Component{
                                 </Row>
                                 <Row type="flex" justify="space-between" align="middle">
                                     <Col style={{color:"red",fontSize:15}}>￥{item.price}</Col>
-                                    <Col>{item.number}</Col>
+                                    <Col>已售{item.number}</Col>
                                 </Row>
                             </div>
                         </div>

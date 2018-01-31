@@ -4,25 +4,46 @@
 import React from "react"
 import ListComponent from "../../../components/list"
 import "../../../static/css/list.css"
+import LoadMore from "../../../components/list/LoadMore"
 
 class List extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             data : [],
-            hasMore : false
+            hasMore : false,
+            isLoadingMore:false,
+            page: 1
         }
     }
     componentDidMount() {
-        fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
-            .then(res=>res.json())
+        const result =fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
+        this.resultHandle(result)
+
+    }
+    LoadMoreData=()=>{
+        this.setState({
+            isLoadingMore: true
+        })
+        const page = this.state.page;
+        const result =fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
+        this.resultHandle(result)
+
+        this.setState({
+            page: page + 1,
+            isLoadingMore: false
+        })
+
+    }
+    resultHandle(result){
+        result.then(res=>res.json())
             .then(res=>{
                 const hasMore = res.hasMore;
                 const data = res.data;
                 console.log(data)
                 this.setState({
-                    data : data,
-                    hasMore : hasMore
+                    data: this.state.data.concat(data),
+                    hasMore: hasMore
                 })
             })
     }
@@ -31,8 +52,13 @@ class List extends React.Component{
         return (
             <div>
                 <h2>猜你喜欢</h2>
-                <div>{this.state.data.length ?
+                <div>
+                    {this.state.data.length ?
                     <ListComponent data={this.state.data}/> : <div>loading</div>}
+                </div>
+                <div>
+                    {this.state.hasMore ?
+                        <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.LoadMoreData}/> : ""}
                 </div>
             </div>
             )

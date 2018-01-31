@@ -14,7 +14,7 @@ class AppRouter extends React.Component {
         return (
             <Router history={history}>
                 <App>
-                    <Route path="" component={SubRouter}/>
+                    <Route path="/" component={SubRouter}/>
                 </App>
             </Router>
         )

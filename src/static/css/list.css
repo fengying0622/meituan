@@ -5,7 +5,6 @@
 .item{
     width:100%;
     display: table;
-    content: '';
     clear: both;
 
 }
@@ -17,4 +16,10 @@
 .subTitle{
     font-size: 18px;
     font-weight: 700;
+}
+.load-more {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #fff;
+    color: #999;
 }

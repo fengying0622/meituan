@@ -16,3 +16,18 @@
 .setting{
     font-weight: bold;
 }
+.second-head{
+    background-color: blueviolet;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+    position: relative;
+}
+.anticon-left:before{
+    padding-top: 15px;
+    padding-left: 5px;
+}
+.span{
+    padding-left: 125px;
+}

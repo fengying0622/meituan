@@ -1,24 +1,21 @@
 /**
- * Created by Administrator on 2018/1/25.
+ * Created by Administrator on 2018/1/31.
  */
-import React from 'react'
-import {Row,Col,Icon,Input} from "antd"
-import  "../../static/css/head.css"
+import React from "react"
+import {Icon} from "antd"
+import "../../static/css/head.css"
 
-class Header extends React.Component {
-
-    render() {
+class Head extends React.Component{
+    clickHandler=()=>{
+        window.history.back()
+    }
+    render(){
         return (
-            <div className="home-header">
-                <Row type="flex" justify="space-around" align="middle">
-                    <Col>{this.props.cityName}&nbsp;<Icon type="down" /></Col>
-                    <Col className="search">
-                        <Input prefix={<Icon type='search'/>} placeholder="请输入关键字" size="large"/>
-                    </Col>
-                    <Col className="setting"><Icon type="user" style={{fontSize:25}}/></Col>
-                </Row>
+            <div className="second-head">
+                <Icon type="left" onClick={this.clickHandler}/>
+                <span className="span">{this.props.title}</span>
             </div>
         )
     }
 }
-export default Header
+export default Head
