@@ -38,7 +38,7 @@ class LoadMore extends React.Component {
             if (timeoutId) {
                 clearTimeout(timeoutId)
             }
-            timeoutId = setTimeout(callback, 50)
+            timeoutId = setTimeout(callback, 30)
         }.bind(this), false);
     }
 

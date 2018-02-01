@@ -31,3 +31,14 @@
 .span{
     padding-left: 125px;
 }
+.search-input{
+    background-color: blueviolet;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+}
+.search-input-search{
+    padding-left: 80px;
+    padding-top: 5px;
+}

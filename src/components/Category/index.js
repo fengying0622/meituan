@@ -4,6 +4,7 @@
 import React from "react"
 import ReactSwipe from "react-swipe"
 import "../../static/css/category.css"
+import {Link} from "react-router-dom"
 
 //轮播图：react-swipe
 class Category extends React.Component{
@@ -30,7 +31,7 @@ class Category extends React.Component{
                 <ReactSwipe swipeOptions={opt}>
                     <div className="carousel-item">
                         <ul>
-                            <li className="float-left jingdian">景点</li>
+                            <Link to="/search/jingdian"><li className="float-left jingdian">景点</li></Link>
                             <li className="float-left ktv">KTV</li>
                             <li className="float-left gouwu">购物</li>
                             <li className="float-left shenghuofuwu">生活服务</li>
@@ -73,9 +74,9 @@ class Category extends React.Component{
                 </ReactSwipe>
                 <div className="index-container">
                     <ul>
-                        <li className={this.state.index === 0 ? "selected" : ''}></li>
-                        <li className={this.state.index === 1 ? "selected" : ''}></li>
-                        <li className={this.state.index === 2 ? "selected" : ''}></li>
+                        <li className={this.state.index === 0 ? "selected" : ''}/>
+                        <li className={this.state.index === 1 ? "selected" : ''}/>
+                        <li className={this.state.index === 2 ? "selected" : ''}/>
                     </ul>
                 </div>
             </div>

@@ -2,12 +2,18 @@
  * Created by Administrator on 2018/1/25.
  */
 import React from 'react'
-import {Row,Col,Icon,Input} from "antd"
+import {Row,Col,Icon} from "antd"
 import {Link} from "react-router-dom"
 import  "../../static/css/head.css"
+import {withRouter} from "react-router-dom"
+import {connect} from "react-redux"
+import InputSearch from "./input"
 
 class HomeHead extends React.Component {
 
+    handleKeyDown=(value)=>{
+        this.props.history.push('/search/all/'+value)
+    }
     render() {
         return (
             <div className="home-header">
@@ -18,7 +24,7 @@ class HomeHead extends React.Component {
                         </Link>
                     </Col>
                     <Col className="search">
-                        <Input prefix={<Icon type='search'/>} placeholder="请输入关键字" size="large"/>
+                        <InputSearch enterHandler={this.handleKeyDown}/>
                     </Col>
                     <Col className="setting"><Icon type="user" style={{fontSize:25}}/></Col>
                 </Row>
@@ -26,4 +32,13 @@ class HomeHead extends React.Component {
         )
     }
 }
-export default HomeHead
+const mapStateToProps=()=>{
+    return {}
+}
+const mapDispatchToProps=()=>{
+    return {}
+}
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HomeHead))
