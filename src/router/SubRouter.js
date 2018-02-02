@@ -6,6 +6,7 @@ import {Route,Switch} from "react-router-dom"
 import Home from "../containers/Home"
 import City from "../containers/City"
 import Search from "../containers/Search"
+import Detail from "../containers/Detail"
 import NotFound from "../containers/404"
 
 /*switch 挨个匹配，直到匹配到"/city",换成div的话，404也会显示出来
@@ -19,6 +20,7 @@ class SubRouter extends React.Component{
                 <Route exact path="/" component={Home} />
                 <Route path="/city" component={City} />
                 <Route path="/search/:category/:keyword?" component={Search} />
+                <Route path="/detail/:id" component={Detail}/>
                 <Route component={NotFound}/>
             </Switch>
         )

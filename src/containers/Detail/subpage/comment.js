@@ -1,12 +1,10 @@
 /**
- * Created by Administrator on 2018/1/29.
+ * Created by Administrator on 2018/2/2.
  */
 import React from "react"
-import ListComponent from "../../../components/list"
-import "../../../static/css/list.css"
 import LoadMore from "../../../components/list/LoadMore"
-
-class List extends React.Component{
+import ListComment from "../../../components/list/ListComment"
+class Comment extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -16,17 +14,18 @@ class List extends React.Component{
             page: 1
         }
     }
-    componentDidMount() {
-        const result =fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
-        this.resultHandle(result)
 
+    componentDidMount() {
+        const id = this.props.id;
+       const result = fetch("http://rap2api.taobao.org/app/mock/4877/POST//comment",{method:'post'},{id:id})
+        this.resultHandle(result)
     }
     LoadMoreData=()=>{
         this.setState({
             isLoadingMore: true
         })
         const page = this.state.page;
-        const result =fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
+        const result =fetch("http://rap2api.taobao.org/app/mock/4877/POST//comment",{method:"get"})
         this.resultHandle(result)
 
         this.setState({
@@ -47,21 +46,20 @@ class List extends React.Component{
                 })
             })
     }
-
     render(){
         return (
             <div>
-                <h2>猜你喜欢</h2>
+                <h2 style={{fontSize:25}}>用 户 点 评</h2>
                 <div>
                     {this.state.data.length ?
-                    <ListComponent data={this.state.data}/> : <div>loading</div>}
+                        <ListComment data={this.state.data}/> : <div>loading</div>}
                 </div>
                 <div>
                     {this.state.hasMore ?
                         <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.LoadMoreData}/> : ""}
                 </div>
             </div>
-            )
+        )
     }
 }
-export default List
+export default Comment
