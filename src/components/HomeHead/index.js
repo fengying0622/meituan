@@ -26,7 +26,9 @@ class HomeHead extends React.Component {
                     <Col className="search">
                         <InputSearch enterHandler={this.handleKeyDown}/>
                     </Col>
-                    <Col className="setting"><Icon type="user" style={{fontSize:25}}/></Col>
+                    <Col className="setting">
+                        <Link to="/login"><Icon type="user" style={{fontSize:25}}/></Link>
+                    </Col>
                 </Row>
             </div>
         )
