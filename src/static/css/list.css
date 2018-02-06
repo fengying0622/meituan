@@ -24,7 +24,7 @@
     color: #999;
 }
 .star{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     display: inline-block;
 }
@@ -38,7 +38,7 @@
 }
 .price{
     color:gray;
-    fontSize:18px;
+    font-size:18px;
     padding-left: 15px;
 }
 .list{
@@ -51,4 +51,41 @@
 .comment{
     font-size: 16px;
     padding-left: 5px;
+}
+.buy-item{
+    display:table;
+    clear:both;
+    border-bottom: 1px solid gainsboro;
+}
+.buy-detail{
+    font-size: 15px;
+    margin: 0 130px;
+    padding-top: 5px;
+}
+.buy-detail span {
+    width:100px;
+    color: #666;
+    display: block;
+    text-align: left;
+    line-height: 1.8;
+}
+.buy-img{
+    float:left;
+    padding: 10px 18px;
+}
+.buy-comment{
+    width: 100px;
+    float:right;
+
+}
+.buy-comment button{
+    width:80px;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background-color: deepskyblue;
+    text-align: center;
+    margin-top: 25px;
+    border:0;
 }

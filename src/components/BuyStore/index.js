@@ -10,7 +10,7 @@ class BuyStore extends React.Component{
 
     }
     buyHandler =()=>{
-
+        this.props.buyHandle()
     }
     render(){
         const isStore =this.props.isStore;

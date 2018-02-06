@@ -3,23 +3,23 @@
  */
 import * as actionTypes from "../constants/store"
 
-export function update(data){
+export const update = (data) =>{
     return {
         type : actionTypes.STORE_UPDATE,
         data
     }
 }
 
-export function add (item){
+export const add =(id) =>{
     return {
         type : actionTypes.STORE_ADD,
-        data : item
+        id
     }
 }
 
-export function remove (item){
+export const remove =(id)=>{
     return {
         type : actionTypes.STORE_RM,
-        data : item
+        id
     }
 }

@@ -33,7 +33,7 @@ class Info extends React.Component{
                         <Row type="flex" justify="space-between" align="middle">
                             <Col className="subTitle">{data.subtitle}</Col>
                         </Row>
-                        <Row type="flex"  align="middle">
+                        <Row type="flex"  justify="space-between" align="middle">
                             <Star number={data.star}/>
                             <Col className="price">￥{data.price}</Col>
                         </Row>

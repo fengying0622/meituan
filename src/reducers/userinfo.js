@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/userinfo'
 
-const initialState = {}
+const initialState = []
 
 export default function userInfo (state = initialState, action) {
     switch (action.type) {

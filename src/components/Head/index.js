@@ -4,10 +4,16 @@
 import React from "react"
 import {Icon} from "antd"
 import "../../static/css/head.css"
+import {withRouter} from 'react-router-dom'
 
 class Head extends React.Component{
     clickHandler=()=>{
-        window.history.back()
+        const backUrl = this.props.backUrl;
+        if(backUrl){
+            this.props.history.push(backUrl)
+        }else{
+            window.history.back()
+        }
     }
     render(){
         return (
@@ -18,4 +24,5 @@ class Head extends React.Component{
         )
     }
 }
-export default Head
+//不加withrouter会报错：找不到history.push方法
+export default withRouter(Head)

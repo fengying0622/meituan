@@ -35,12 +35,14 @@ class Login extends React.Component{
         const userInfo = this.props.userInfo;
         userInfo.userName = value.username;
         userInfo.password = value.password;
+        userInfo.userId = 1;
         this.props.userInfoActions(userInfo);
         //跳转页面
         const router = this.props.match.params.router;
         console.log(router)
         if(router){
-            this.props.history.push(router)
+            //this.props.history.push(router)
+            window.history.back()
         }else{
             this.goUserCenter()
         }

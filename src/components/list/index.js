@@ -23,7 +23,7 @@ class ListComponent extends React.Component{
                                     <Col style={{color:"grey"}}>{item.distance}m</Col>
                                 </Row>
                                 <Row type="flex" justify="space-between" align="middle">
-                                    <Col style={{color:"grey"}}>{item.title}</Col>
+                                    <Col style={{color:"grey",paddingTop:3,paddingBottom:3}}>{item.title}</Col>
                                 </Row>
                                 <Row type="flex" justify="space-between" align="middle">
                                     <Col style={{color:"red",fontSize:15}}>￥{item.price}</Col>
