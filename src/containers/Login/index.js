@@ -39,7 +39,6 @@ class Login extends React.Component{
         this.props.userInfoActions(userInfo);
         //跳转页面
         const router = this.props.match.params.router;
-        console.log(router)
         if(router){
             //this.props.history.push(router)
             window.history.back()

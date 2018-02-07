@@ -10,10 +10,7 @@ export const store =(state=initialState,action)=>{
             return action.data
         case actionTypes.STORE_ADD:
             return [
-                ...state,
-                {
-                    id : action.id
-                }
+                ...state, action.data
             ]
         case actionTypes.STORE_RM:
             return state.filter(item=>{

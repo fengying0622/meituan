@@ -10,16 +10,16 @@ export const update = (data) =>{
     }
 }
 
-export const add =(id) =>{
+export const add =(data) =>{
     return {
         type : actionTypes.STORE_ADD,
-        id
+        data
     }
 }
 
-export const remove =(id)=>{
+export const remove =(data)=>{
     return {
         type : actionTypes.STORE_RM,
-        id
+        data
     }
 }

@@ -17,14 +17,27 @@ class User extends React.Component{
     }
 
     componentDidMount() {
-        const userId=this.props.userInfo.userId;
-        fetch("http://rap2api.taobao.org/app/mock/4877/POST//buyList",{method:"post"},{userId:userId})
-            .then(res=>res.json())
-            .then(res=>{
-                this.setState({
-                    data : res.data
+        const flag = this.checkLogin();
+        if(flag){
+            const userId=this.props.userInfo.userId;
+            fetch("http://rap2api.taobao.org/app/mock/4877/POST//buyList",{method:"post"},{userId:userId})
+                .then(res=>res.json())
+                .then(res=>{
+                    this.setState({
+                        data : res.data
+                    })
                 })
-            })
+        }
+
+    }
+    //检查是否登录
+    checkLogin(){
+        const userInfo = this.props.userInfo;
+        if(!userInfo.userName){
+            this.props.history.push('/login')
+            return false
+        }
+        return true
     }
     render(){
         return (

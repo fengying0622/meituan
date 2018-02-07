@@ -2,8 +2,7 @@
  * Created by Administrator on 2018/2/2.
  */
 import React from "react"
-import {Row,Col} from "antd"
-import Star from "../../../components/star"
+import DetailInfo from "../../../components/detail"
 
 class Info extends React.Component{
     constructor(props){
@@ -23,29 +22,7 @@ class Info extends React.Component{
             })
     }
     render(){
-        const data = this.state.info
-        return (
-                <div className="item">
-                    <div className="img">
-                        <img src={data.img} alt={data.title}/>
-                    </div>
-                    <div className="detail">
-                        <Row type="flex" justify="space-between" align="middle">
-                            <Col className="subTitle">{data.subtitle}</Col>
-                        </Row>
-                        <Row type="flex"  justify="space-between" align="middle">
-                            <Star number={data.star}/>
-                            <Col className="price">￥{data.price}</Col>
-                        </Row>
-                        <Row type="flex" justify="space-between" align="middle">
-                            <Col style={{color:"grey",fontSize:14}}>{data.title}</Col>
-                        </Row>
-                        <Row type="flex" justify="space-between" align="middle">
-                            <Col style={{color:"grey",fontSize:14}}>地址：{data.address}</Col>
-                        </Row>
-                    </div>
-                </div>
-            )
+        return <DetailInfo info={this.state.info} />
     }
 }
 export default Info

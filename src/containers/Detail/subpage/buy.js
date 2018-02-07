@@ -13,7 +13,8 @@ class Buy extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            isStore : false
+            isStore : false,
+            info :[]
         }
     }
 
@@ -33,6 +34,14 @@ class Buy extends React.Component {
                 return true
             }
         })
+        //通过主键获取详情
+        fetch("http://rap2api.taobao.org/app/mock/4877/POST//detail",{method:"post"},{id:id})
+            .then(res=>res.json())
+            .then(res=>{
+                this.setState({
+                    info : res.data
+                })
+            })
     }
 
     //检查是否登录
@@ -61,14 +70,14 @@ class Buy extends React.Component {
         if(!flag){
             return
         }
-        const id = this.props.id;
+        const data = this.state.info;
         const addAction =this.props.addAction;
         const removeAction =this.props.removeAction;
         //如果已收藏，点击后将取消收藏
         if(this.state.isStore){
-            removeAction(id)
+            removeAction(data)
         }else{
-            addAction(id)
+            addAction(data)
         }
         this.setState({
             isStore : !this.state.isStore
@@ -78,7 +87,10 @@ class Buy extends React.Component {
 
     render() {
         return (
-           <BuyStore isStore={this.state.isStore} buyHandle={this.buyHandle} storeHandle={this.storeHandle}/>
+           <BuyStore isStore={this.state.isStore}
+                     buyHandle={this.buyHandle}
+                     storeHandle={this.storeHandle}
+           />
         )
     }
 }
