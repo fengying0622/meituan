@@ -8,6 +8,8 @@ class List extends React.Component{
     render(){
         const data = this.props.data;
         const store = this.props.store;
+        const userName = this.props.userInfo.userName;
+        const submitComment = this.props.submitComment;
         return (
             <div>
                 <h2 style={{fontSize:20}}>订 单 详 情</h2>
@@ -15,7 +17,7 @@ class List extends React.Component{
                     {data.length>0 ? data.map((item,index)=>{
                         return (
                             <div key={index}>
-                                <Order data={item}/>
+                                <Order data={item} userName={userName} submitComment={submitComment}/>
                             </div>
                         )
                     }) : <div>列表空</div>}

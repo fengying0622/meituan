@@ -39,13 +39,35 @@ class User extends React.Component{
         }
         return true
     }
+
+    //上传评论
+    submitComment = (data,callback) =>{
+        console.log(data)
+        fetch('http://rap2api.taobao.org/app/mock/4877/POST//commentSubmit',{method:"post"},{data:data})
+            .then(res=>res.json())
+            .then(res=>{
+                if(res.success===true){
+                    callback()
+                }
+            })
+    }
+
     render(){
         return (
                 <div>
                     <Head title="用户中心" backUrl="/"/>
                     <UserComponent userInfo={this.props.userInfo} />
                     <br/>
-                    <List data={this.state.data} store={this.props.store}/>
+                    { this.state.data.length > 0 ?
+                        <List data={this.state.data}
+                              store={this.props.store}
+                              userInfo={this.props.userInfo}
+                              submitComment={this.submitComment}
+
+                        />
+                        : ""
+                    }
+
                 </div>
             )
     }

@@ -67,7 +67,7 @@
     color: #666;
     display: block;
     text-align: left;
-    line-height: 1.8;
+    line-height: 1.5;
 }
 .buy-img{
     float:left;
@@ -88,4 +88,28 @@
     text-align: center;
     margin-top: 25px;
     border:0;
+}
+.buy-comment-submit{
+    margin: 10px 15px 15px 0;
+    width:350px;
+}
+.buy-comment-submit textarea{
+    margin-left: 18px;
+    width:250px;
+}
+.buy-comment-submit button{
+    width:50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    background-color: darkslategray;
+    text-align: center;
+    padding-top: 4px;
+    border:0;
+    margin-left: 45px;
+    margin-top: 5px;
+
+}
+.cancel{
+    margin-left: 20px;
 }

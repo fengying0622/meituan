@@ -3,13 +3,6 @@
  */
 import * as actionTypes from "../constants/store"
 
-export const update = (data) =>{
-    return {
-        type : actionTypes.STORE_UPDATE,
-        data
-    }
-}
-
 export const add =(data) =>{
     return {
         type : actionTypes.STORE_ADD,

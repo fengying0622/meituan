@@ -22,7 +22,7 @@ class Buy extends React.Component {
         //检查是否收藏
         const id = this.props.id
         const store = this.props.store
-
+        console.log(store)
         // some 即任何一个满足即可
         store.some(item => {
             if (item.id === id) {
@@ -30,9 +30,9 @@ class Buy extends React.Component {
                 this.setState({
                     isStore: true
                 })
-                // 跳出循环
-                return true
             }
+            // 跳出循环
+            return true
         })
         //通过主键获取详情
         fetch("http://rap2api.taobao.org/app/mock/4877/POST//detail",{method:"post"},{id:id})

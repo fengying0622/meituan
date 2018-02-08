@@ -5,6 +5,25 @@ import React from "react"
 import {Icon} from "antd"
 
 class Star extends React.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            star : 0
+        }
+    }
+
+    clickHandle=(star)=>{
+        const clickCallback = this.props.clickCallback
+        if (!clickCallback) {
+            return
+        }
+        this.setState({
+            star : star
+        })
+
+        clickCallback(star)
+    }
+
     render(){
         const number = this.props.number;
         return (
@@ -13,7 +32,7 @@ class Star extends React.Component{
                    const lightClass= number>=item ? "light":""
                     return (
                             <div key={index} className="star-show">
-                                <Icon type="star" className={lightClass}/>
+                                <Icon type="star" star={item} className={lightClass} onClick={this.clickHandle}/>
                             </div>
                         )
                 })}
