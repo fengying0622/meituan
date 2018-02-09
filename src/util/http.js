@@ -1,4 +1,4 @@
-const baseUrl = 'http://rap2api.taobao.org/app/mock/';
+const baseUrl = 'http://rap2api.taobao.org/app/mock/4877/';
 
 export const Http = {
     get: (url, params, headers) => {
@@ -22,8 +22,7 @@ export const Http = {
         return new Promise(function (resolve, reject) {
 
             // console.log('请求地址：--------------------------');
-            // console.log(url);
-            fetch(url, {
+            fetch(baseUrl+url, {
                 method: 'GET',
                 headers: headers
             })
@@ -38,9 +37,8 @@ export const Http = {
     },
 
     post: (url, params, headers) => {
+        //将json对象解析成json字符串
         let formData = JSON.stringify(params);
-
-
         return new Promise(function (resolve, reject) {
 
             fetch(baseUrl+url, {

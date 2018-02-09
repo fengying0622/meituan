@@ -7,6 +7,7 @@ import {bindActionCreators} from "redux"
 import {withRouter} from "react-router-dom"
 import {add,remove}from "../../../actions/store"
 import BuyStore from "../../../components/BuyStore"
+import {detailByID} from "../../../api"
 
 class Buy extends React.Component {
 
@@ -33,14 +34,18 @@ class Buy extends React.Component {
             }
             // 跳出循环
             return true
-        })
-        //通过主键获取详情
-        fetch("http://rap2api.taobao.org/app/mock/4877/POST//detail",{method:"post"},{id:id})
-            .then(res=>res.json())
+        });
+        //请求参数必须为json格式
+        const value ={
+            id : id
+        }
+        detailByID(value)
             .then(res=>{
-                this.setState({
-                    info : res.data
-                })
+                if(res.success){
+                    this.setState({
+                        info : res.data
+                    })
+                }
             })
     }
 

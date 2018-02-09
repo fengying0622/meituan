@@ -3,7 +3,7 @@
  */
 import React from "react"
 import AdHead from "../../../components/AdHead/index"
-
+import {getCategory} from "../../../api"
 class Ad extends React.Component{
     constructor(props){
         super(props)
@@ -12,8 +12,7 @@ class Ad extends React.Component{
         }
     }
     componentDidMount() {
-        fetch("http://rap2api.taobao.org/app/mock/4877/GET//adverHead",{method:"get"})
-            .then(res=>res.json())
+        getCategory()
             .then(res=>{
                 const data = res.data;
                 console.log(data)

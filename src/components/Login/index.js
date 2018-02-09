@@ -2,14 +2,15 @@
  * Created by Administrator on 2018/2/5.
  */
 import React from "react"
+import {userLogin} from "../../api"
 import {Row,Form,Input,Checkbox,Button,Icon} from "antd"
 class LoginComponent extends React.Component{
     doLogin = (e) =>{
         e.preventDefault();
         this.props.form.validateFields((err, value)=>{
+            console.log("JSON对象"+value)
             if(!err){
-                fetch("http://rap2api.taobao.org/app/mock/4877/POST//login",{method:'post'},{value:value})
-                    .then(res=>res.json())
+                userLogin(value)
                     .then(res=>{
                         if(res.success){
                             //存入redux
@@ -18,7 +19,6 @@ class LoginComponent extends React.Component{
                     })
             }
         })
-
     }
     render (){
         const { getFieldDecorator } = this.props.form;

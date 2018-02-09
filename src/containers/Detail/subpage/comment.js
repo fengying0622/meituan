@@ -4,6 +4,7 @@
 import React from "react"
 import LoadMore from "../../../components/list/LoadMore"
 import ListComment from "../../../components/list/ListComment"
+import {commentByID} from "../../../api"
 class Comment extends React.Component{
     constructor(props){
         super(props)
@@ -16,17 +17,22 @@ class Comment extends React.Component{
     }
 
     componentDidMount() {
-        const id = this.props.id;
-       const result = fetch("http://rap2api.taobao.org/app/mock/4877/POST//comment",{method:'post'},{id:id})
+        const value ={
+            id : this.props.id
+        }
+       const result = commentByID(value)
         this.resultHandle(result)
     }
     LoadMoreData=()=>{
         this.setState({
             isLoadingMore: true
         })
+        const value ={
+            id : this.props.id
+        }
         const page = this.state.page;
-        const result =fetch("http://rap2api.taobao.org/app/mock/4877/POST//comment",{method:"get"})
-        this.resultHandle(result)
+        const result = commentByID(value);
+        this.resultHandle(result);
 
         this.setState({
             page: page + 1,
@@ -35,8 +41,7 @@ class Comment extends React.Component{
 
     }
     resultHandle(result){
-        result.then(res=>res.json())
-            .then(res=>{
+        result.then(res=>{
                 const hasMore = res.hasMore;
                 const data = res.data;
                 console.log(data)
@@ -47,6 +52,7 @@ class Comment extends React.Component{
             })
     }
     render(){
+        console.log(this.state.page)
         return (
             <div>
                 <h2 style={{fontSize:25}}>用 户 点 评</h2>

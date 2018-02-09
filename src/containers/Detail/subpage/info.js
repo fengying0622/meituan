@@ -3,6 +3,7 @@
  */
 import React from "react"
 import DetailInfo from "../../../components/detail"
+import {detailByID} from "../../../api"
 
 class Info extends React.Component{
     constructor(props){
@@ -13,8 +14,10 @@ class Info extends React.Component{
     }
     componentDidMount() {
         const id = this.props.id;
-        fetch("http://rap2api.taobao.org/app/mock/4877/POST//detail",{method:"post"},{id:id})
-            .then(res=>res.json())
+        const value ={
+            id : id
+        }
+        detailByID(value)
             .then(res=>{
                 this.setState({
                     info : res.data

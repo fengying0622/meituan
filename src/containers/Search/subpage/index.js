@@ -8,6 +8,7 @@ import React from "react"
 import ListComponent from "../../../components/list"
 import "../../../static/css/list.css"
 import LoadMore from "../../../components/list/LoadMore"
+import {getLikeList} from "../../../api"
 
 const initialState = {
     data: [],
@@ -22,7 +23,7 @@ class List extends React.Component{
         this.state = initialState
     }
     componentDidMount() {
-        const result =fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
+        const result =getLikeList()
         this.resultHandle(result)
 
     }
@@ -40,7 +41,7 @@ class List extends React.Component{
         this.setState(initialState)
 
         // 重新加载数据
-        const result =fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
+        const result =getLikeList()
         this.resultHandle(result)
     }
 
@@ -49,7 +50,7 @@ class List extends React.Component{
             isLoadingMore: true
         })
         const page = this.state.page;
-        const result =fetch("http://rap2api.taobao.org/app/mock/4877/GET//likeList",{method:"get"})
+        const result =getLikeList()
         this.resultHandle(result)
 
         this.setState({
@@ -59,8 +60,7 @@ class List extends React.Component{
 
     }
     resultHandle(result){
-        result.then(res=>res.json())
-            .then(res=>{
+        result.then(res=>{
                 const hasMore = res.hasMore;
                 const data = res.data;
                 this.setState({

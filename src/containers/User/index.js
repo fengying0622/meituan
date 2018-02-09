@@ -7,6 +7,7 @@ import {withRouter} from "react-router-dom"
 import Head from "../../components/Head"
 import UserComponent from "../../components/User"
 import List from "./subpage/list"
+import {buyList,commentSubmit} from "../../api"
 
 class User extends React.Component{
     constructor(props){
@@ -19,9 +20,10 @@ class User extends React.Component{
     componentDidMount() {
         const flag = this.checkLogin();
         if(flag){
-            const userId=this.props.userInfo.userId;
-            fetch("http://rap2api.taobao.org/app/mock/4877/POST//buyList",{method:"post"},{userId:userId})
-                .then(res=>res.json())
+            const value={
+                userId : this.props.userInfo.userId
+            }
+           buyList(value)
                 .then(res=>{
                     this.setState({
                         data : res.data
@@ -43,8 +45,7 @@ class User extends React.Component{
     //上传评论
     submitComment = (data,callback) =>{
         console.log(data)
-        fetch('http://rap2api.taobao.org/app/mock/4877/POST//commentSubmit',{method:"post"},{data:data})
-            .then(res=>res.json())
+        commentSubmit(data)
             .then(res=>{
                 if(res.success===true){
                     callback()
