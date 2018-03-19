@@ -13,8 +13,8 @@ class Search extends React.Component{
         window.history.back()
     }
 
-    handleKeyDown=(value)=>{
-        this.props.history.push('/search/all/'+value)
+    handleKeyDown=(name)=>{
+        this.props.history.push('/search/all/'+name)
     }
 
     render(){
