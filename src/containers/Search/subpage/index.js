@@ -31,6 +31,7 @@ class List extends React.Component{
     componentDidUpdate(prevProps) {
         const keyword = this.props.keyword
         const category = this.props.category
+        console.log("prevProps"+prevProps.keyword);
 
         // 搜索条件完全相等时，忽略
         if (keyword === prevProps.keyword && category === prevProps.category) {

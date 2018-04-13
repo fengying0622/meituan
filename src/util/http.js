@@ -4,12 +4,14 @@ export const Http = {
     get: (url, params, headers) => {
         if (params) {
             let paramsArray = [];
-            //过去params苏偶偶的KEY
+            //返回参数的字符串数组
             let paramsKeyArray = Object.keys(params);
             // 通过 forEach 方法拿到数组中每个元素,将元素与参数的值进行拼接处理,并且放入 paramsArray 中
+            console.log('a'+paramsKeyArray);
             paramsKeyArray.forEach(key => {
                 return paramsArray.push((key + '=' + params[key]));
             });
+            console.log('b'+paramsKeyArray);
 
             //网络拼接
             if (url.search(/\?/) === -1) {
