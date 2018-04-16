@@ -27,6 +27,9 @@ class List extends React.Component{
         this.resultHandle(result)
 
     }
+    componentWillReceiveProps(nextProps){
+        console.log("nextprops="+nextProps.keyword);
+    }
     //页面再次渲染时用componentDidUpdate
     componentDidUpdate(prevProps) {
         const keyword = this.props.keyword

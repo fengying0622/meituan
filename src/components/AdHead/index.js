@@ -2,6 +2,7 @@
  * Created by Administrator on 2018/1/30.
  */
 import React from "react"
+import {Link} from "react-router-dom"
 import "../../static/css/AdHead.css"
 
 class AdHead extends React.Component{
@@ -15,9 +16,9 @@ class AdHead extends React.Component{
                 {data.map((item,index)=>{
                     return (
                         <div key={index} className="ad-item">
-                            <a href={item.link} >
+                            <Link to={/table/+item.id}>
                                 <img src={item.img} alt={item.title}/>
-                            </a>
+                            </Link>
                         </div>
                     )
                 })}
