@@ -5,7 +5,7 @@ import React from "react"
 import {Route,Switch} from "react-router-dom"
 import Home from "../containers/Home"
 import City from "../containers/City"
-import TableList from "../components/AdHead/tableList"
+import Table from "../containers/Table"
 import Search from "../containers/Search"
 import Detail from "../containers/Detail"
 import Login from "../containers/Login"
@@ -22,7 +22,7 @@ class SubRouter extends React.Component{
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/city" component={City} />
-                <Route path="/table/:id" component={TableList} />
+                <Route path="/table/:id" component={Table} />
                 <Route path="/search/:category/:keyword?" component={Search} />
                 <Route path="/detail/:id" component={Detail}/>
                 <Route path="/login/:router?" component={Login}/>
